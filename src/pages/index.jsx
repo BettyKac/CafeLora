@@ -20,22 +20,7 @@ document.querySelector('#root').innerHTML = render(
     <Header />
     <main>
       <Banner />
-      <Menu />
-      <Drink
-          name="Romano"
-          ordered={false}
-          image="https://localhost:4000/assets/cups/romano.png"
-          layers={[
-            {
-              color: '#fbdf5b',
-              label: 'citrón',
-            },
-            {
-              color: '#613916',
-              label: 'espresso',
-            },
-          ]}
-        />
+      <Menu drinks={drinks} />
       <Gallery />
       <Contact />
     </main>

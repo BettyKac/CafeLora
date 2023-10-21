@@ -7,10 +7,15 @@ export const Drink = ({ name, ordered, image, layers}) => {
       <div className="drink">
         <div className="drink__product">
           <div className="drink__cup">
-            <img src={image} alt={name} />
+            <img src={`http://localhost:4000${image}`} alt={name} />
           </div>
           <div className="drink__info">
             <h3>{name}</h3>
+            {layers.map((layer, index)=> <Layer
+                 key={index}
+                 color = {layer.color}
+                 label = {layer.label}
+            /> )}
             <Layer color="#feeeca" label="mléčná pěna" />
           </div>
         </div>
