@@ -9,27 +9,18 @@ import { Contact } from '../components/Contact/Contact';
 import { Footer } from '../components/Footer/Footer';
 import { Drink } from '../components/Drinks/Drink';
 
+const response = await fetch('http://localhost:4000/api/drinks')
+const data = await response.json();
+const drinks = data.result;
+
+console.log(drinks)
+
 document.querySelector('#root').innerHTML = render(
   <div className="page">
     <Header />
     <main>
       <Banner />
-      <Menu />
-        <Drink
-            name="Romano"
-            ordered={false}
-            image="https://localhost:4000/assets/cups/romano.png"
-            layers={[
-              {
-                color: '#fbdf5b',
-                label: 'citrón',
-              },
-              {
-                color: '#613916',
-                label: 'espresso',
-              },
-            ]}
-        />
+      <Menu drinks={drinks}/>
       <Gallery />
       <Contact />
     </main>
