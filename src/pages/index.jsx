@@ -21,15 +21,12 @@ document.querySelector('#root').innerHTML = render(
   </div>
 );
 
-// document.querySelector('#root').innerHTML = render(
-//   <div className="page">
-//     <Header />
-//     <main>
-//       <Banner />
-//       <Menu />
-//       <Gallery />
-//       <Contact />
-//     </main>
-//     <Footer />
-//   </div>
-// );
+const nav = document.querySelector('.nav-btn')
+const rolloutNav = document.querySelector('.rollout-nav')
+nav.addEventListener('click', () => {
+rolloutNav.classList.toggle('nav-closed')
+})
+
+ rolloutNav.addEventListener('click', () => {
+ rolloutNav.classList.add('nav-closed')
+ })
