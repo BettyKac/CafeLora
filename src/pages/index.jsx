@@ -37,3 +37,18 @@ rolloutNav.classList.toggle('nav-closed')
  rolloutNav.addEventListener('click', () => {
  rolloutNav.classList.add('nav-closed')
  })
+
+ const buttons = document.querySelectorAll('.order-btn')
+ buttons.forEach((button, index) => {
+  button.addEventListener('click', async() => {
+    const response = await fetch(`http://localhost:4000/api/drinks/${drinks[index].id}`, {
+      method:'PATCH',
+      headers: {
+        'Content-Type':'application/json'
+      },
+      body: JSON.stringify([{ op: 'replace', path: '/ordered', value: true }])
+    });
+    const data = await response.json();
+    window.location.reload()
+  });
+});

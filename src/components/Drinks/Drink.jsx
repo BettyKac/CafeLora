@@ -2,6 +2,9 @@ import './Drink.css'
 import { Layer } from '../Layer/Layer'
 
 export const Drink = ({ name, ordered, image, layers}) => {
+  const buttonText = ordered === true ? "Zrušit" : "Objednat";
+  const buttonClass = ordered === true ? "order-btn order-btn--ordered" : "order-btn";
+  
   return (
     <div className="drinks-list">
       <div className="drink">
@@ -20,8 +23,8 @@ export const Drink = ({ name, ordered, image, layers}) => {
           </div>
         </div>
         <div className="drink__controls">
-          <button className="order-btn">
-            Objednat
+          <button className={buttonClass}>
+            {buttonText}
           </button>
         </div>
       </div>
@@ -31,3 +34,4 @@ export const Drink = ({ name, ordered, image, layers}) => {
     </div>
   )
 }
+
